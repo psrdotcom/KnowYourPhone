@@ -12,10 +12,10 @@
 		android:id="@+id/featureslist"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_alignParentLeft="true"
 		android:layout_alignParentTop="true"
 		android:childIndicator="@drawable/child_indicator"
 		android:groupIndicator="@drawable/grp_indicator"
+		android:padding="10dp"
 		android:transcriptMode="alwaysScroll" >
 	</ExpandableListView>
 

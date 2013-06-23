@@ -2,5 +2,7 @@
 <resources>
 
 	<string name="app_name">KnowYourPhone</string>
-	<string name="title_telephone_detail">Telephone Detail</string>
-</resources>
+	<string name="sendsms">Send</string>
+	<string name="sms_recipient_name">Mobile Number</string>
+
+</resources>

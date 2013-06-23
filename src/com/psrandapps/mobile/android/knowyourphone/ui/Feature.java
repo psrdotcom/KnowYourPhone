@@ -5,7 +5,6 @@ package com.psrandapps.mobile.android.knowyourphone.ui;
 
 /**
  * @author Suresh Raju Pilli
- *
  */
 public class Feature
 {

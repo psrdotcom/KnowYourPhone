@@ -3,6 +3,8 @@
  */
 package com.psrandapps.mobile.android.knowyourphone.ui;
 
+import java.util.List;
+
 import android.content.Context;
 import android.util.Log;
 import android.view.View;
@@ -17,13 +19,17 @@ import android.widget.TextView;
 public class KnowYourPhoneAdapter extends BaseExpandableListAdapter
 {
 	private Context context;
-	private String[] parent = new Categories().get_categories();
-	private String[][] childs = new DataItems().getFeaturesList();
 
-	public KnowYourPhoneAdapter(Context context)
+	private List<String> parent;
+	private List<List<Feature>> childs;
+
+	public KnowYourPhoneAdapter(Context context, Categories cats, DataItems allData)
 	{
 		this.context = context;
 		Log.d("Adapter", "Adapter");
+		
+		parent = cats.getCategoriesList();
+		childs = allData.getFeaturesList();
 	}
 
 	/* (non-Javadoc)
@@ -32,8 +38,7 @@ public class KnowYourPhoneAdapter extends BaseExpandableListAdapter
 	@Override
 	public Object getChild(int arg0, int arg1)
 	{
-		// TODO Auto-generated method stub
-		return childs[arg0][arg1];
+		return childs.get(arg0).get(arg1).getFeature_name();
 	}
 
 	/* (non-Javadoc)
@@ -42,7 +47,6 @@ public class KnowYourPhoneAdapter extends BaseExpandableListAdapter
 	@Override
 	public long getChildId(int arg0, int arg1)
 	{
-		// TODO Auto-generated method stub
 		return arg0 * arg1;
 	}
 
@@ -53,7 +57,8 @@ public class KnowYourPhoneAdapter extends BaseExpandableListAdapter
 	public View getChildView(int arg0, int arg1, boolean arg2, View arg3, ViewGroup arg4)
 	{
 		TextView tv = new TextView(context);
-		tv.setText(childs[arg0][arg1]);
+		tv.setText(childs.get(arg0).get(arg1).getFeature_name());
+		tv.setPadding(50, 5, 5, 5);
 		return tv;
 	}
 
@@ -63,8 +68,7 @@ public class KnowYourPhoneAdapter extends BaseExpandableListAdapter
 	@Override
 	public int getChildrenCount(int arg0)
 	{
-		// TODO Auto-generated method stub
-		return parent[arg0].length();
+		return childs.get(arg0).size();
 	}
 
 	/* (non-Javadoc)
@@ -73,7 +77,7 @@ public class KnowYourPhoneAdapter extends BaseExpandableListAdapter
 	@Override
 	public Object getGroup(int arg0)
 	{
-		return parent[arg0];
+		return parent.get(arg0);
 	}
 
 	/* (non-Javadoc)
@@ -82,7 +86,7 @@ public class KnowYourPhoneAdapter extends BaseExpandableListAdapter
 	@Override
 	public int getGroupCount()
 	{
-		return parent.length;
+		return parent.size();
 	}
 
 	/* (non-Javadoc)
@@ -101,7 +105,9 @@ public class KnowYourPhoneAdapter extends BaseExpandableListAdapter
 	public View getGroupView(int arg0, boolean arg1, View arg2, ViewGroup arg3)
 	{
 		TextView tv = new TextView(context);
-		tv.setText(parent[arg0]);
+		tv.setText(parent.get(arg0));
+		tv.setPadding(30, 10, 10, 10);
+		tv.setTextSize(15.5f);
 		return tv;
 	}
 
@@ -144,6 +150,5 @@ public class KnowYourPhoneAdapter extends BaseExpandableListAdapter
 	{
 		super.onGroupExpanded(groupPosition);
 	}
-
 
 }

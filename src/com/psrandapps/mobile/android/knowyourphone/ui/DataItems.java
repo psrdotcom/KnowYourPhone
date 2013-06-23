@@ -4,7 +4,6 @@
 package com.psrandapps.mobile.android.knowyourphone.ui;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -27,25 +26,10 @@ public class DataItems
 	/**
 	 * @return the all features list
 	 */
-	public String[][] getFeaturesList()
+	public List<List<Feature>> getFeaturesList()
 	{
-		String[][] allFeatures = new String[features_list.size()][];
+		return features_list;
 
-		int i = 0, j = 0;
-		for (Iterator<List<Feature>> itr = features_list.iterator(); itr.hasNext();)
-		{
-			List<Feature> feature = itr.next();
-			Feature feature_arr[];
-			allFeatures[i] = new String[feature.size()];
-
-			// feature_arr = feature.toArray(new Feature[feature.size()]);
-			// for (; j < feature_arr;)
-			// allFeatures[i][j] = feature_arr[i].getFeature_name();
-			// i++;
-			// j++;
-		}
-
-		return allFeatures;
 	}
 
 }

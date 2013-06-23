@@ -12,25 +12,50 @@ import java.util.List;
  */
 public class Categories
 {
-	private static List<String> categories = new ArrayList<String>();;
+	private static List<String> categories = new ArrayList<String>();
+	private String cat_name;
 
 	public Categories()
+	{}
+
+	/**
+	 * @return the cat_name
+	 */
+	public String getCategoryname()
 	{
+		return cat_name;
+	}
+
+	/**
+	 * @param cat_name the cat_name to set
+	 */
+	public void setCat_name(String cat_name)
+	{
+		this.cat_name = cat_name;
 	}
 
 	/*
 	 * @param cat_name the add category name
 	 */
-	public void add_category(String cat_name)
+	public void addCategory(String cat_name)
 	{
+		setCat_name(cat_name);
 		categories.add(cat_name);
 	}
 
 	/*
-	 * @return the categories list String array
+	 * @return the categories list
 	 */
-	public String[] get_categories()
+	public List<String> getCategoriesList()
 	{
-		return categories.toArray(new String[categories.size()]);
+		return categories;
+	}
+
+	/*
+	 * Clear Categories
+	 */
+	public void clearCategoriesList()
+	{
+		categories.clear();
 	}
 }
