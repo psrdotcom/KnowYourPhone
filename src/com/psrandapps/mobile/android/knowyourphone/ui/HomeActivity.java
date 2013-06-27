@@ -133,11 +133,11 @@ public class HomeActivity extends Activity
 		
 		// Add categories -- Groups
 		cats = new Categories();
-		cats.addCategory("Telephony");
-		cats.addCategory("CallLogs");
-		cats.addCategory("PackageInfo");
-		cats.addCategory("SMS");
-		cats.addCategory("Location");
+		cats.addCategory(" Telephony");
+		cats.addCategory(" CallLogs");
+		// cats.addCategory("PackageInfo");
+		// cats.addCategory("SMS");
+		cats.addCategory(" Location");
 		
 		// Telephony category: Adding features
 		feat_tele = new ArrayList<Feature>();
@@ -170,8 +170,8 @@ public class HomeActivity extends Activity
 		allData = new DataItems();
 		allData.addFeatures(feat_tele);
 		allData.addFeatures(feat_callog);
-		allData.addFeatures(feat_pkg);
-		allData.addFeatures(feat_sms);
+		// allData.addFeatures(feat_pkg);
+		// allData.addFeatures(feat_sms);
 		allData.addFeatures(feat_loca);
 	}
 
